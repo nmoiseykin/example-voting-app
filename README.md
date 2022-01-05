@@ -1,5 +1,6 @@
 Example Voting App
 =========
+Testing commit rules here
 
 Getting started
 ---------------
