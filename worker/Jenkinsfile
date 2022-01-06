@@ -11,7 +11,7 @@ pipeline {
             steps{
                 echo 'Compiling worker app'
 		dir('worker'){
-                  sh 'cd worker && mvn compile' 
+                  sh 'mvn compile' 
 		}
             }
         }
