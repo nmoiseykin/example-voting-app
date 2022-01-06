@@ -1,0 +1,37 @@
+pipeline {
+    
+    agent any
+
+    tools{
+      maven 'maven384'
+    }
+  
+    stages {
+        stage('one'){
+            steps{
+                echo 'Compiling worker app'
+		dir('worker'){
+                  sh 'cd worker && mvn compile' 
+		}
+            }
+        }
+        
+        stage('two'){
+            steps{
+                echo 'Running Unit Tests on worker app'
+            }
+        }
+        
+        stage('three'){
+            steps{
+                echo 'Packaging worker app'
+            }
+        }
+        
+    }
+    post{
+        always{
+            echo 'Build pipeline for worker is complete..'
+        }
+    }
+}
