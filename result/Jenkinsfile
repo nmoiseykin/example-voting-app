@@ -1,11 +1,11 @@
 pipeline {
     
-    agent any
-
-    tools{
-      nodejs 'nodejs89'
+    agent{
+      docker{
+        image 'node:8.16.0-a;pine'
+	}
     }
-  
+
     stages {
         stage('build'){
             when{
