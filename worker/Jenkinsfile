@@ -68,6 +68,7 @@ pipeline {
 	when{
 		changeset "**/worker/**"
 		branch 'master'
+	}
 	{
 	    steps{
                 echo 'Packaging worker app with docker'
@@ -80,7 +81,8 @@ pipeline {
 		}
             }
         }
-    }
+	}    
+	}
     post{
         always{
             echo 'Build pipeline for worker is complete..'
