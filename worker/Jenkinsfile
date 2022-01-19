@@ -66,8 +66,7 @@ pipeline {
  script{
  docker.withRegistry('https://index.docker.io/v1/', 'nmoiseykin-docker')
 {
- def workerImage = docker.build("nmoiseykin/worker:v$
-{env.BUILD_ID}", "./worker")
+ def workerImage = docker.build("nmoiseykin/worker:v${env.BUILD_ID}", "./worker")
  workerImage.push()
  workerImage.push("${env.BRANCH_NAME}")
  workerImage.push("latest")
