@@ -43,7 +43,6 @@ pipeline {
                         changeset "**/vote/**"
                         branch 'master'
                         }
-		      }	
                 steps{
                         echo 'Packaging vote app with docker'
                         script{
