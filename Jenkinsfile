@@ -1,4 +1,4 @@
-pipeline {
+/pipeline {
 	agent none
 	 stages{
 		 stage("worker-build"){
@@ -160,6 +160,20 @@ pipeline {
                 dir('vote'){
                   sh 'pip install -r requirements.txt'
                   sh 'nosetests -v'
+                }
+            }
+        }
+
+	stage('vote-intergration'){
+            agent any
+              when{
+              changeset "**/vote/**"
+	      branch 'master'
+            }
+            steps{
+                echo 'Running Integration Tests on vote app'
+                dir('vote'){
+                  sh 'integrtion_test.sh'
                 }
             }
         }
